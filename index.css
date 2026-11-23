@@ -1,3 +1,7 @@
+/* Branch 1: Hover effect for planet card */
+.stage:hover {
+  box-shadow: 0 20px 90px rgba(109, 255, 225, 0.25);
+}
 /* HELLO/ — a self-contained, hand-crafted playground. No fonts, libraries, or images needed. */
 :root{color-scheme:dark;--bg:#0b0d13;--surface:#12151d;--ink:#f5f3ea;--muted:#9699aa;--line:#333744;--accent:#d7fa51;--accent2:#ff8a57;--accentInk:#14170d;--planetLight:#feec79;--planetMid:#ff9847;--planetDark:#ee4f65;--glow:rgba(215,250,81,.20);--stage:#161922;--font:Arial,Helvetica,system-ui,sans-serif}
 body[data-theme="bubble"]{--accent:#ff8bb6;--accent2:#a491ff;--accentInk:#2b1320;--planetLight:#ffbbe2;--planetMid:#e97bba;--planetDark:#9b5be4;--glow:rgba(255,139,182,.22)}
