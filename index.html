@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d13" />
+  <meta name="description" content="An interactive, ridiculously playful hello world experiment. Made with HTML, CSS and JavaScript." />
+  <title>HELLO/ — An interactive playground</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body data-theme="solar">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
+  <div id="burst-layer" aria-hidden="true"></div>
+
+  <div class="site-wrap">
+    <header class="header">
+      <a class="brand" href="#main" aria-label="Hello Slash home">
+        <span class="brand-icon">H<span>/</span></span>
+        <span class="brand-name">HELLO<span class="brand-slash">/</span><small>THE PLAYGROUND</small></span>
+      </a>
+      <div class="header-center"><span class="status-dot"></span> <span>EXPERIMENT <b>001</b></span> <span class="divider-bar">/</span> BUILT TO PLAY</div>
+      <div class="header-actions">
+        <button class="icon-button" id="sound-toggle" aria-label="Turn sounds on" aria-pressed="false" title="Toggle sound">
+          <svg id="sound-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="17" y1="9" x2="23" y2="15"></line><line x1="23" y1="9" x2="17" y2="15"></line></svg>
+        </button>
+        <button class="theme-button" id="theme-toggle" title="Switch color palette" aria-label="Switch color palette">
+          <span class="theme-mini-orb"></span><span>SWITCH THE VIBE</span><span class="arrow">↗</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="main-heading">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span><span>THE INTERNET CAN BE FUN, ACTUALLY.</span><span class="tiny-spark">✳</span></div>
+          <h1 id="main-heading" class="hero-title" aria-label="Hello world!">
+            <span class="title-row"><span class="title-hello" id="hello-word">HELLO</span><span class="asterisk" aria-hidden="true">✳</span></span>
+            <span class="title-row second"><span class="title-world" id="world-word">WORLD</span><span class="title-exclaim">!</span></span>
+          </h1>
+          <p class="hero-description">Just three files. A whole lot of personality.<br />Move your mouse, mash some buttons, <em>make a little magic.</em></p>
+          <div class="hero-buttons">
+            <button class="primary-button magnetic" id="remix-button"><span class="button-symbol">✳</span><span>REMIX THE UNIVERSE</span><span class="button-arrow">↗</span></button>
+            <button class="secondary-button magnetic" id="surprise-button" aria-label="Make confetti"><span class="surprise-icon">✺</span> SURPRISE ME</button>
+          </div>
+          <div class="hero-footnote"><span class="footnote-squiggle" aria-hidden="true">↳</span><span>psst... try pressing <kbd>SPACE</kbd> or <kbd>R</kbd></span></div>
+        </div>
+
+        <div class="stage" id="stage" aria-label="Animated interactive planet">
+          <div class="stage-grid" aria-hidden="true"></div>
+          <div class="stage-top"><span class="stage-index">FIG. 01 — THE GOOD STUFF</span><span class="stage-live"><span class="live-dot"></span> LIVE & KICKING</span></div>
+          <div class="floating-label floating-label-one" aria-hidden="true"><span>↗</span> A LITTLE CHAOS</div>
+          <div class="floating-label floating-label-two" aria-hidden="true">100% GOOD VIBES <span>✴</span></div>
+          <div class="planet-zone" id="planet-zone">
+            <div class="orbit orbit-outer" aria-hidden="true"><i class="orbit-point"></i></div>
+            <div class="orbit orbit-inner" aria-hidden="true"><i class="orbit-point"></i></div>
+            <div class="planet-wrap" id="planet-wrap">
+              <div class="planet" id="planet" aria-hidden="true"><div class="planet-highlight"></div><span class="planet-face"><span class="eye"></span><span class="eye"></span><span class="smile"></span></span></div>
+              <div class="planet-ring planet-ring-back" aria-hidden="true"></div>
+              <div class="planet-ring planet-ring-front" aria-hidden="true"></div>
+            </div>
+            <span class="spark spark-a" aria-hidden="true">✦</span><span class="spark spark-b" aria-hidden="true">✳</span><span class="spark spark-c" aria-hidden="true">✧</span><span class="spark spark-d" aria-hidden="true">✦</span>
+          </div>
+          <div class="stage-bottom"><span class="stage-bottom-label">NOT YOUR AVERAGE HELLO WORLD</span><span class="coordinate" id="coordinates">X: 000 / Y: 000</span></div>
+          <button class="planet-hitarea" id="planet-button" aria-label="Poke the planet for a surprise" title="Poke me!">POKE ME <span>↗</span></button>
+        </div>
+      </section>
+
+      <section class="control-deck" aria-label="Interactive controls">
+        <div class="deck-intro"><span class="deck-asterisk">✳</span><div><strong>THE FUN STUFF</strong><span>GO AHEAD. TOUCH THINGS.</span></div></div>
+        <button class="deck-item" id="chaos-button"><span class="deck-index">01 /</span><span class="deck-content"><strong>CHAOS MODE</strong><small>LET IT ALL EXPLODE</small></span><span class="deck-icon">↗</span></button>
+        <button class="deck-item" id="gravity-button" aria-pressed="false"><span class="deck-index">02 /</span><span class="deck-content"><strong>GRAVITY <span id="gravity-state">ON</span></strong><small>CHANGE THE PHYSICS</small></span><span class="deck-icon">◎</span></button>
+        <button class="deck-item" id="message-button"><span class="deck-index">03 /</span><span class="deck-content"><strong>SECRET MESSAGE</strong><small>THERE'S MORE TO THIS</small></span><span class="deck-icon">✳</span></button>
+      </section>
+    </main>
+    <footer class="footer"><div class="marquee" aria-label="Made for curious people"><div class="marquee-track" aria-hidden="true"><span>STAY CURIOUS <i>✳</i> MAKE WEIRD STUFF <i>✳</i> HAVE FUN OUT THERE <i>✳</i> STAY CURIOUS <i>✳</i> MAKE WEIRD STUFF <i>✳</i> HAVE FUN OUT THERE <i>✳</i></span><span>STAY CURIOUS <i>✳</i> MAKE WEIRD STUFF <i>✳</i> HAVE FUN OUT THERE <i>✳</i> STAY CURIOUS <i>✳</i> MAKE WEIRD STUFF <i>✳</i> HAVE FUN OUT THERE <i>✳</i></span></div></div><div class="footer-bottom"><span>© 2026 HELLO/ — MADE WITH CURIOSITY</span><span>PURE HTML + CSS + JS. NO LIBRARIES. NO BORING BITS.</span><span id="click-counter">00 INTERACTIONS</span></div></footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="secret-overlay" id="secret-overlay" aria-hidden="true">
+    <div class="secret-card" role="dialog" aria-modal="true" aria-labelledby="secret-title">
+      <button class="secret-close" id="secret-close" aria-label="Close message">×</button>
+      <span class="secret-eyebrow">A LITTLE REMINDER FOR YOU</span>
+      <div class="secret-art" aria-hidden="true">✳</div>
+      <h2 id="secret-title">YOU MAKE<br /><em>THE INTERNET</em><br />MORE INTERESTING.</h2>
+      <p>Keep making things. Keep breaking things. Keep being curious.</p>
+      <button class="primary-button" id="secret-okay">OKAY, THAT'S CUTE <span>↗</span></button>
+    </div>
+  </div>
+</body>
+</html>
